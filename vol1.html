@@ -1,0 +1,386 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第1弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  .header {
+    text-align: center;
+    padding: 30px 20px;
+    margin-bottom: 30px;
+  }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 {
+    font-size: 24px;
+    font-weight: bold;
+    line-height: 1.4;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #a8d5b5;
+  }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong {
+    color: #FFD700;
+    font-size: 20px;
+  }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 14px;
+  }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text {
+    font-size: 16px;
+    font-weight: bold;
+    line-height: 1.5;
+    color: #1a1a1a;
+  }
+  .choices {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 8px;
+    margin-bottom: 16px;
+  }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before {
+    content: "✅ ";
+  }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label {
+    font-size: 12px;
+    font-weight: bold;
+    color: #007A53;
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+  }
+  .answer-text {
+    font-size: 14px;
+    color: #333;
+    line-height: 1.6;
+  }
+  .difficulty {
+    display: inline-block;
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    margin-left: 8px;
+    font-weight: bold;
+  }
+  .diff-初級 { background: #d4edda; color: #155724; }
+  .diff-中級 { background: #fff3cd; color: #856404; }
+  .diff-上級 { background: #f8d7da; color: #721c24; }
+  .footer {
+    text-align: center;
+    padding: 30px 20px;
+    color: #a8d5b5;
+    font-size: 13px;
+    line-height: 1.8;
+  }
+  .next-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .next-banner .next-title {
+    font-size: 18px;
+    margin-bottom: 6px;
+  }
+  .next-banner .next-sub {
+    font-size: 13px;
+    font-weight: normal;
+  }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <!-- ヘッダー -->
+  <div class="header">
+    <div class="vol-badge">🌱 第1弾 答え合わせ</div>
+    <h1>サステナ"ぶれない"<br>超マニアッククイズ</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <!-- スコア確認バナー -->
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">「グリーンウォッシュ」とは何を指すか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 環境に配慮した洗剤の使用</div>
+      <div class="choice correct">B. 実態を伴わない環境配慮のアピール</div>
+      <div class="choice">C. グリーンエネルギーの普及活動</div>
+      <div class="choice">D. 環境データの第三者検証</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">グリーンウォッシュは「グリーン（環境）」＋「ホワイトウォッシュ（ごまかし）」の造語。実態が伴わないのに環境に良いと見せかけるマーケティング手法。EU・日本でも規制強化が進んでいる。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">Amazonの配送で使われる「ラストマイル」とは何を指すか？<span class="difficulty diff-初級">初級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 最初の1マイルの輸送</div>
+      <div class="choice correct">B. 最寄りの配送拠点から顧客への最終配送区間</div>
+      <div class="choice">C. 国際輸送の最終区間</div>
+      <div class="choice">D. 返品時の輸送区間</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ラストマイルは物流コストの約50%を占める最も非効率な区間。Amazonは電動バン・自転車・ドローン配送でCO₂削減に取り組んでいる。皆さんが毎日関わっている仕事がここに直結！</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">PETボトルの「PET」は何の略か？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice correct">A. Polyethylene Terephthalate</div>
+      <div class="choice">B. Polyester Thermoplastic</div>
+      <div class="choice">C. Plastic Environmental Technology</div>
+      <div class="choice">D. Petroleum Extract Tube</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">PETはポリエチレンテレフタレート。軽くて強く透明なプラスチック。日本のPETボトルリサイクル率は約86%と世界トップクラス。ただし「リサイクルされている」と思い込むグリーンウォッシュ的な安心感にも注意。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">京都議定書で先進国に義務付けられた温室効果ガス削減の基準年はいつか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 1980年</div>
+      <div class="choice correct">B. 1990年</div>
+      <div class="choice">C. 1995年</div>
+      <div class="choice">D. 2000年</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">京都議定書（1997年採択）は1990年比での削減を義務付け。日本は6%削減が目標だった。現在のパリ協定は「産業革命前（1850-1900年）比」を基準とする点が異なる。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">「30by30」目標とは何か？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 2030年までにCO₂を30%削減</div>
+      <div class="choice correct">B. 2030年までに陸と海の30%を保全</div>
+      <div class="choice">C. 2030年までに再エネ比率を30%にする</div>
+      <div class="choice">D. 2030年までに廃棄物を30%削減</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">30by30は2022年のCOP15（生物多様性条約）で採択された目標。2030年までに地球の陸域・海域の30%以上を保護区等で保全する。日本も達成に向けて「自然共生サイト」認定制度を開始。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">世界の電力における再生可能エネルギーの割合（2023年）に最も近いのはどれか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約20%</div>
+      <div class="choice correct">B. 約30%</div>
+      <div class="choice">C. 約40%</div>
+      <div class="choice">D. 約50%</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">2023年の世界の再エネ発電比率は約30%。太陽光・風力の急拡大で2015年の約23%から大幅増加。IEAは2030年までに60%超を予測。日本は約22%とまだ低い水準。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">「ティッピングポイント」とは気候変動の文脈で何を指すか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. CO₂濃度が産業革命前の2倍になる時点</div>
+      <div class="choice correct">B. 気候システムが不可逆的に変化する臨界点</div>
+      <div class="choice">C. 各国の排出削減目標の達成期限</div>
+      <div class="choice">D. 再エネが化石燃料より安くなる時点</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ティッピングポイントを超えると人間が何をしても元に戻せない。例：西南極氷床の崩壊・アマゾンの草原化・永久凍土の融解。1.5℃超えで複数のティッピングポイントが連鎖する「カスケード」リスクが高まる。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">日本の一般廃棄物のリサイクル率（2022年度時点）に最も近い数値はどれか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約10%</div>
+      <div class="choice correct">B. 約20%</div>
+      <div class="choice">C. 約30%</div>
+      <div class="choice">D. 約40%</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">日本の一般廃棄物リサイクル率は約20%。「リサイクル先進国」のイメージとは裏腹にドイツ（約67%）や韓国（約59%）より低い。焼却処理が多い日本の課題の一つ。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">「持続可能な開発」の定義を初めて示した1987年の報告書の通称はどれか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. ローマクラブ報告書</div>
+      <div class="choice correct">B. ブルントラント報告書</div>
+      <div class="choice">C. スターン報告書</div>
+      <div class="choice">D. メドウズ報告書</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">「Our Common Future（我ら共有の未来）」が正式名称。ノルウェーのブルントラント首相が委員長を務めた国連委員会の報告書。「将来世代のニーズを損なわずに現在のニーズを満たす開発」という定義はここから。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">世界の海面上昇の主な原因として最も寄与が大きいのはどれか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 南極氷床の融解</div>
+      <div class="choice">B. グリーンランド氷床の融解</div>
+      <div class="choice correct">C. 海水の熱膨張</div>
+      <div class="choice">D. 山岳氷河の融解</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">現在の海面上昇の約半分は海水の熱膨張（水は温まると体積が増える）。残りが氷河・氷床の融解。ただし今後は南極・グリーンランド氷床の融解の寄与が増大すると予測されており、最悪シナリオでは2100年までに1m以上の上昇も。</div>
+    </div>
+  </div>
+
+  <!-- 次弾予告 -->
+  <div class="next-banner">
+    <div class="next-title">🌿 第2弾も挑戦してみよう！</div>
+    <div class="next-sub">知らないとぶれる！FCスタッフが動かす地球編<br>食堂のポスターのQRコードをスキャン！</div>
+  </div>
+
+  <!-- フッター -->
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
