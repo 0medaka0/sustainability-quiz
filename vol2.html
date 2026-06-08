@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第2弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: bold; line-height: 1.4; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #a8d5b5; }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong { color: #FFD700; font-size: 20px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 16px; font-weight: bold; line-height: 1.5; color: #1a1a1a; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before { content: "✅ "; }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label { font-size: 12px; font-weight: bold; color: #007A53; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .answer-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .difficulty { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: bold; }
+  .diff-初級 { background: #d4edda; color: #155724; }
+  .diff-中級 { background: #fff3cd; color: #856404; }
+  .diff-上級 { background: #f8d7da; color: #721c24; }
+  .next-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .next-banner .next-title { font-size: 18px; margin-bottom: 6px; }
+  .next-banner .next-sub { font-size: 13px; font-weight: normal; }
+  .back-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .footer { text-align: center; padding: 30px 20px; color: #a8d5b5; font-size: 13px; line-height: 1.8; }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="vol-badge">🌿 第2弾 答え合わせ</div>
+    <h1>知らないとぶれる！<br>FCスタッフが動かす地球編</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">Amazonが1日に出荷する荷物の数（世界全体）に最も近いのはどれか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約100万個</div>
+      <div class="choice">B. 約500万個</div>
+      <div class="choice correct">C. 約3000万個以上</div>
+      <div class="choice">D. 約1億個</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">Amazonは世界で1日3000万個以上を出荷。QCB4の1台のコンベアが止まると地球規模の物流に影響する。あなたの仕事が世界とつながっている！</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">段ボール箱1枚を作るのに必要な木の量として最も近いのはどれか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1本の木で1枚</div>
+      <div class="choice">B. 約1本の木で約100枚</div>
+      <div class="choice correct">C. 約1本の木で約3000枚</div>
+      <div class="choice">D. 約1本の木で1万枚</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">木1本から段ボール約3000枚が作れる。FCで1日に扱う段ボールの量を木の本数に換算すると森林1つ分になることも。だからリサイクルが大切！</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">AmazonのSmartPacが削減した段ボール使用量は年間何億箱相当か？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1億箱</div>
+      <div class="choice correct">B. 約3億箱</div>
+      <div class="choice">C. 約5億箱</div>
+      <div class="choice">D. 約10億箱</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">SmartPacにより年間約3億箱分の段ボール削減を達成。機械学習で最適梱包を判定している。FCスタッフが毎日使っているあの薄い袋が地球を救っている。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">Amazonの「置き配」を利用すると再配達と比べてCO₂排出量はどう変わるか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 変わらない</div>
+      <div class="choice">B. 約2倍増える</div>
+      <div class="choice correct">C. 最大約60%削減できる</div>
+      <div class="choice">D. 約10%増える</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">再配達はトラックが同じ場所に2回行くためCO₂が倍増。置き配の推進はFCスタッフの仕事が地球に直結している証拠。1回で届けることがサステナビリティにつながる。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">FCで使われるストレッチフィルム（パレットラップ）を適切に分別回収するとどうなるか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 何も変わらない</div>
+      <div class="choice correct">B. 高品質なプラスチック原料としてリサイクルできる</div>
+      <div class="choice">C. 燃料になる</div>
+      <div class="choice">D. 土に還る</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ストレッチフィルムはLDPE単一素材で汚れが少なく高品質リサイクルが可能。FCでの分別が資源循環の鍵。捨て方一つで地球が変わる！</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">Amazonが導入するRivian製電動配送バンの最終目標台数はどれか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 1万台</div>
+      <div class="choice">B. 5万台</div>
+      <div class="choice correct">C. 10万台</div>
+      <div class="choice">D. 50万台</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">10万台の電動バン導入が目標。10万台は日本の宅配便車両の約半分に相当する規模。FCから出発する荷物がEVで届けられる日が近づいている。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">FCの照明をLEDに切り替えると従来の蛍光灯と比べて消費電力はどう変わるか？<span class="difficulty diff-初級">初級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約10%削減</div>
+      <div class="choice">B. 約30%削減</div>
+      <div class="choice correct">C. 約50〜70%削減</div>
+      <div class="choice">D. ほぼ変わらない</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">LEDは蛍光灯比で50〜70%の省エネ。FCの広大な面積でLEDが光るだけで膨大なCO₂削減になる。照明1つ1つの選択が積み重なって大きな差になる。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">Amazonが「Ships in Own Container（SIOC）」プログラムで目指していることはどれか？<span class="difficulty diff-初級">初級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 配送を速くする</div>
+      <div class="choice correct">B. 商品の箱をそのまま配送箱にして二重梱包をなくす</div>
+      <div class="choice">C. コストを下げる</div>
+      <div class="choice">D. 防水性を高める</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">商品パッケージをそのまま配送に使うことで段ボール使用量を大幅削減。FCスタッフが梱包を選ぶ判断が地球に影響する。梱包材を減らすことが直接CO₂削減につながる。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">FCで発生する廃棄物のうち「ゼロ廃棄埋立」とはどういう意味か？<span class="difficulty diff-初級">初級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. ゴミを出さない</div>
+      <div class="choice correct">B. 廃棄物を一切埋め立て処分せずリサイクル・再利用に転換する</div>
+      <div class="choice">C. ゴミを燃やす</div>
+      <div class="choice">D. ゴミを輸出する</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ゼロ廃棄埋立（Zero Waste to Landfill）はFCから出るゴミを埋め立てに送らない取り組み。分別の徹底がカギ。あなたの分別の一手間が地球を守っている！</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">FCスタッフ1人が1日に歩く距離（約5〜15km）を全世界のAmazon従業員（約150万人）で合計すると地球何周分になるか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1周</div>
+      <div class="choice">B. 約50周</div>
+      <div class="choice correct">C. 約200周以上</div>
+      <div class="choice">D. 約1000周</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">150万人×平均10km＝1500万km÷地球1周4万km＝約375周。FCスタッフの歩みが文字通り地球を動かしている。あなたの1歩が世界とつながっている！</div>
+    </div>
+  </div>
+
+  <!-- 次弾予告 -->
+  <div class="next-banner">
+    <div class="next-title">👻 第3弾も挑戦してみよう！</div>
+    <div class="next-sub">潜伏！見えない敵・知らない被害者編<br>食堂のポスターのQRコードをスキャン！</div>
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
