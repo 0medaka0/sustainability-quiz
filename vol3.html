@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第3弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: bold; line-height: 1.4; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #a8d5b5; }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong { color: #FFD700; font-size: 20px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 16px; font-weight: bold; line-height: 1.5; color: #1a1a1a; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before { content: "✅ "; }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label { font-size: 12px; font-weight: bold; color: #007A53; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .answer-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .difficulty { display: inline-block; font-size: 11px; padding: 2px 8px; border-radius: 10px; margin-left: 8px; font-weight: bold; }
+  .diff-初級 { background: #d4edda; color: #155724; }
+  .diff-中級 { background: #fff3cd; color: #856404; }
+  .diff-上級 { background: #f8d7da; color: #721c24; }
+  .next-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .next-banner .next-title { font-size: 18px; margin-bottom: 6px; }
+  .next-banner .next-sub { font-size: 13px; font-weight: normal; }
+  .back-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .footer { text-align: center; padding: 30px 20px; color: #a8d5b5; font-size: 13px; line-height: 1.8; }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="vol-badge">👻 第3弾 答え合わせ</div>
+    <h1>潜伏！見えない敵・<br>知らない被害者編</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">👻 「ゴーストフィッシング」とは何か？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 夜中に行う密漁のこと</div>
+      <div class="choice correct">B. 海に捨てられた漁網が魚を捕り続ける現象</div>
+      <div class="choice">C. 幽霊船による違法漁業</div>
+      <div class="choice">D. 魚が消える原因不明の現象</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">毎年約64万トンもの漁具が海に捨てられ、誰も管理しない状態で魚・カメ・イルカなどを永遠に捕り続ける。「幽霊漁業」とも呼ばれ、海洋生態系への深刻な脅威となっている。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">🧪 人間は毎週どれくらいのマイクロプラスチックを体内に摂取しているといわれているか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 砂粒1粒分</div>
+      <div class="choice">B. 爪の先ひとかけ分</div>
+      <div class="choice correct">C. クレジットカード1枚分</div>
+      <div class="choice">D. 消しゴム1個分</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">WHO等の研究では、人は毎週約5gのマイクロプラスチックを摂取していると推定されており、これはクレジットカード1枚の重さに相当する。飲料水・食塩・魚介類など日常的な食品から体内に入り込んでいる。</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">🌊 「デッドゾーン」とは何か？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 核実験が行われた海域</div>
+      <div class="choice correct">B. 酸素がほぼなく生き物が生きられない海域</div>
+      <div class="choice">C. 水温が極端に低い深海</div>
+      <div class="choice">D. プラスチックが集積する海域</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">農業からの肥料が川に流れ込み、海で藻が大量発生→分解時に酸素を消費→酸素ゼロの「死の海」が誕生する。現在世界に500か所以上存在し、魚・エビ・カニが生きられない。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">🔬 PM2.5はWHOからどのような分類を受けているか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. グループ3（発がん性なし）</div>
+      <div class="choice">B. グループ2B（発がん性の疑い）</div>
+      <div class="choice">C. グループ2A（発がん性あり）</div>
+      <div class="choice correct">D. グループ1（発がん性確実）</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">PM2.5は直径2.5マイクロメートル以下の超微粒子で、肺の奥まで侵入し血中に入る。WHOは「グループ1＝発がん性確実」に分類。世界では毎年約700万人がPM2.5による大気汚染で死亡しているとされる。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">🧺 洗濯機で合成繊維の衣類を1回洗うと、どれくらいのマイクロファイバーが流出するか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1000本</div>
+      <div class="choice correct">B. 約70万本</div>
+      <div class="choice">C. 約100万本</div>
+      <div class="choice">D. 約1億本</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">フリースなどの合成繊維衣類1枚の洗濯で約70万本のマイクロファイバーが排水溝から川・海へ流出する。浄水場でも100%除去できないため、魚の体内から検出されるケースが増えている。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">🍔 牛が排出するメタンガスの温暖化効果はCO₂の何倍か？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約5倍</div>
+      <div class="choice">B. 約10倍</div>
+      <div class="choice correct">C. 約28倍</div>
+      <div class="choice">D. 約100倍</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">メタンガスはCO₂の約28倍（100年換算）の温暖化効果を持つ。世界には約10億頭の牛がおり、ゲップや排泄物からのメタン排出は農業由来の温室効果ガスの最大要因の一つ。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">🌿 「グリーンウォッシュ」に関して、EUの調査では企業の環境広告の約何割に根拠がなかったと報告されているか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1割</div>
+      <div class="choice correct">B. 約半数</div>
+      <div class="choice">C. 約2割</div>
+      <div class="choice">D. 約8割</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">EU消費者委員会の調査（2021年）では、企業の環境関連主張の約53%が「曖昧・根拠不明・誤解を招く」とされた。「エコ」「サステナブル」「グリーン」と書いてあっても要注意。見抜く目を持つことが大切。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">🚿 マイクロビーズとは何か、そしてどこから海に入るか？<span class="difficulty diff-中級">中級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 工場排水に含まれる化学物質</div>
+      <div class="choice correct">B. 洗顔料・歯磨き粉などに含まれる微小プラスチック粒子</div>
+      <div class="choice">C. 漁網から出るプラスチック片</div>
+      <div class="choice">D. タイヤの摩耗から出るゴム粒子</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">スクラブ洗顔料や歯磨き粉に含まれる直径1mm以下のプラスチック粒子。排水処理でも除去しきれず川・海に流れ込み、魚が食べることで食物連鎖に入り込む。現在多くの国で使用が規制されている。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">☕ コーヒー1杯を作るために必要な「バーチャルウォーター（仮想水）」の量はどれくらいか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約10リットル（コップ約50杯分）</div>
+      <div class="choice">B. 約50リットル（ペットボトル約25本分）</div>
+      <div class="choice correct">C. 約140リットル（お風呂の約1/3）</div>
+      <div class="choice">D. 約500リットル（お風呂約2.5杯分）</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">バーチャルウォーターとは農作物の栽培・加工に使われた見えない水のこと。コーヒー1杯には豆の栽培から加工まで約140リットルの水が使われている。毎朝の1杯の裏に、膨大な水資源が隠れている。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">🔎 「綿製エコバッグは何回以上使って初めて環境負荷がレジ袋より低くなるか？<span class="difficulty diff-上級">上級</span></div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約10回</div>
+      <div class="choice">B. 約30回</div>
+      <div class="choice correct">C. 約131回以上</div>
+      <div class="choice">D. 約1000回以上</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">デンマーク環境保護庁の研究では、綿製エコバッグの製造時の環境負荷がレジ袋の数十〜100倍以上あるため、131回以上使って初めてトータルでエコになるとされる。「持っているだけ」ではエコにならない。何度も使い続けることが大切。</div>
+    </div>
+  </div>
+
+  <!-- 次弾予告 -->
+  <div class="next-banner">
+    <div class="next-title">🌍 第4弾も挑戦してみよう！</div>
+    <div class="next-sub">えっ、それが原因？！意外すぎる地球のドミノ編<br>食堂のポスターのQRコードをスキャン！</div>
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
