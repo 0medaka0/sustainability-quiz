@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第4弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: bold; line-height: 1.4; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #a8d5b5; }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong { color: #FFD700; font-size: 20px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 16px; font-weight: bold; line-height: 1.5; color: #1a1a1a; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before { content: "✅ "; }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label { font-size: 12px; font-weight: bold; color: #007A53; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .answer-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .next-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .next-banner .next-title { font-size: 18px; margin-bottom: 6px; }
+  .next-banner .next-sub { font-size: 13px; font-weight: normal; }
+  .back-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .footer { text-align: center; padding: 30px 20px; color: #a8d5b5; font-size: 13px; line-height: 1.8; }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="vol-badge">🌍 第4弾 答え合わせ</div>
+    <h1>えっ、それが原因？！<br>意外すぎる地球のドミノ編</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">☕ コーヒーを飲むと、何が起きる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 南米の土が荒れる</div>
+      <div class="choice correct">B. 中米の川が枯れる</div>
+      <div class="choice">C. アフリカの湖が縮む</div>
+      <div class="choice">D. インドの地下水が減る</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">コーヒー豆の需要増→斜面の森を切って農園化→雨水が土に染みこまない→川が枯れる→農村が水不足に。1杯のコーヒーの裏に、遠い国の川の運命がつながっている。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">🎵 音楽をストリーミングで聴くと、何が溶ける？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 南極の氷</div>
+      <div class="choice correct">B. 北極の氷</div>
+      <div class="choice">C. ヒマラヤの氷河</div>
+      <div class="choice">D. グリーンランドの氷</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">データセンターが24時間稼働→膨大な電力消費→CO₂排出→温暖化→北極の氷が溶ける。世界中の人が同時に音楽を聴くと、その電力消費は国レベルに匹敵する。</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">🌾 白米を食べると、何が増える？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. CO₂</div>
+      <div class="choice correct">B. メタンガス</div>
+      <div class="choice">C. 窒素酸化物</div>
+      <div class="choice">D. オゾン</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">水田に水を張ると嫌気性微生物が活動してメタンガスが発生。メタンはCO₂の約28倍の温暖化効果を持つ。毎日食べるお米が温暖化とつながっている。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">🧻 トイレットペーパーを使うと、誰が困る？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 北極のシロクマ</div>
+      <div class="choice correct">B. カナダの先住民族</div>
+      <div class="choice">C. アマゾンの農家</div>
+      <div class="choice">D. 南極の研究者</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">需要増→カナダの原生林を伐採→先住民族の聖地・食料源が消える→生活が崩壊。北米のトイレットペーパーの多くが古紙ではなく原生林から作られている。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">🍫 チョコを買うと、誰が学校に行けなくなる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 東南アジアの子ども</div>
+      <div class="choice">B. 南米の子ども</div>
+      <div class="choice correct">C. 西アフリカの子ども</div>
+      <div class="choice">D. 東アフリカの子ども</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ガーナ・コートジボワールのカカオ農場では160万人以上の子どもが働いているとされる（ILO調査）。カカオ農家の収入が低すぎるため、家族を養うために子どもを畑に連れて行かざるを得ない。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">🌴 シャンプーを使うと、何が燃える？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. アマゾンの熱帯雨林</div>
+      <div class="choice correct">B. ボルネオの熱帯雨林</div>
+      <div class="choice">C. コンゴの熱帯雨林</div>
+      <div class="choice">D. スマトラの泥炭地</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">パーム油は加工食品・化粧品・シャンプーの約半数に含まれる。需要増→ボルネオの熱帯雨林を燃やして農園開拓→オランウータンの生息地が消滅→大量のCO₂が排出される。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">📱 スマホを毎年買い替えると、何が起きる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice correct">A. コンゴの子どもが働かされる</div>
+      <div class="choice">B. インドの川が汚染される</div>
+      <div class="choice">C. 中国の砂漠が広がる</div>
+      <div class="choice">D. フィリピンの山が崩れる</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">スマホのバッテリーに使われるコバルトの約70%はコンゴ産。鉱山では子どもたちが危険な環境で働かされているケースが多数報告されている。毎年の買い替えが需要を押し上げる。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">🦐 エビを食べると、何が消える？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. サンゴ礁</div>
+      <div class="choice correct">B. マングローブ林</div>
+      <div class="choice">C. 海藻の森</div>
+      <div class="choice">D. 砂浜</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">エビ養殖需要増→マングローブを伐採して養殖池に→台風・津波の防波堤が消える→沿岸の村が無防備になる。マングローブは海岸線を守る天然の防波堤。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">🥑 アボカドを食べると、何が増える？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 砂漠</div>
+      <div class="choice">B. 洪水</div>
+      <div class="choice correct">C. 暴力事件</div>
+      <div class="choice">D. 干ばつ</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">アボカドブーム→需要急増→メキシコの森を違法伐採してアボカド農園に→麻薬カルテルが農園を支配→暴力が増える。世界中の「アボカドトースト」がメキシコの治安に影響している。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">👖 ジーンズを買うと、何が消える？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. アマゾン川</div>
+      <div class="choice">B. カスピ海</div>
+      <div class="choice correct">C. アラル海</div>
+      <div class="choice">D. バイカル湖</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">綿花栽培の大量取水でかつて世界第4位の大きさを誇ったアラル海がほぼ消滅。1960年代と今の衛星写真を比べると湖がほとんど砂漠に。周辺住民が難民化した。</div>
+    </div>
+  </div>
+
+  <!-- 次弾予告 -->
+  <div class="next-banner">
+    <div class="next-title">💪 第5弾も挑戦してみよう！</div>
+    <div class="next-sub">やればできる！地球を変えた実話編<br>食堂のポスターのQRコードをスキャン！</div>
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
