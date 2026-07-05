@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第6弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: bold; line-height: 1.4; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #a8d5b5; }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong { color: #FFD700; font-size: 20px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 16px; font-weight: bold; line-height: 1.5; color: #1a1a1a; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before { content: "✅ "; }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label { font-size: 12px; font-weight: bold; color: #007A53; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .answer-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .next-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .next-banner .next-title { font-size: 18px; margin-bottom: 6px; }
+  .next-banner .next-sub { font-size: 13px; font-weight: normal; }
+  .back-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .footer { text-align: center; padding: 30px 20px; color: #a8d5b5; font-size: 13px; line-height: 1.8; }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="vol-badge">🚀 第6弾 答え合わせ</div>
+    <h1>SF？それとも現実？<br>地球を救うテクノロジー編</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">🦠 「バイオコンクリート」とは何か？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 植物の根で強化したコンクリート</div>
+      <div class="choice correct">B. バクテリアが入っていてひびを自己修復するコンクリート</div>
+      <div class="choice">C. 廃プラスチックを混ぜた再生コンクリート</div>
+      <div class="choice">D. 海藻エキスで作った生分解コンクリート</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">バイオコンクリートにはバクテリアとその栄養源がカプセルに入って埋め込まれている。ひびが入ると水分でカプセルが開き、バクテリアが石灰石を生成してひびを自動修復する。SF映画のようだが実際にオランダで開発・実用化されている。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">🧲 「核融合発電」が実現すると、燃料は何から取れる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. ウラン鉱石</div>
+      <div class="choice">B. 天然ガス</div>
+      <div class="choice correct">C. 海水（重水素）</div>
+      <div class="choice">D. 太陽風（宇宙空間）</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">核融合発電の燃料は海水から取れる重水素。地球の海の水だけで数億年分のエネルギーが賄えると試算されている。CO₂ゼロ・核廃棄物ほぼなし・燃料ほぼ無限。2025年、アメリカでついて点火に成功し実用化が現実味を帯びてきた。</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">🌿 「バイオミミクリー」とは何のこと？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 生物の遺伝子を書き換える技術</div>
+      <div class="choice">B. 微生物で石油を分解する技術</div>
+      <div class="choice correct">C. 自然界の仕組みをテクノロジーに応用すること</div>
+      <div class="choice">D. 動物の行動をAIで再現すること</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">自然は40億年の研究開発の成果。サメ肌の水着（水の抵抗を減らす）、蜘蛛の糸より強い繊維、カワセミのくちばし形状を模した新幹線のノーズなど、生き物の仕組みをそのままテクノロジーに応用したのがバイオミミクリー。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">🔬 空気中の水分から飲み水を作る機械、1日に何リットル取れる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約1〜5リットル</div>
+      <div class="choice">B. 約10〜50リットル</div>
+      <div class="choice correct">C. 約100〜5000リットル</div>
+      <div class="choice">D. 約1万リットル以上</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">「大気水分収集機（AWG）」は空気中の湿気を冷却して水に変える装置。機種によって1日100〜5000リットルの飲み水を生産できる。川も井戸もない砂漠地帯やアフリカの村で実際に稼働しており、水問題の切り札として注目されている。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">☁️ 宇宙に鏡を置いて地球を冷やす「ジオエンジニアリング」構想、最大の懸念点は？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. コストがかかりすぎる</div>
+      <div class="choice">B. 宇宙ゴミが増える</div>
+      <div class="choice correct">C. 一度始めると止められず降水パターンが変わる</div>
+      <div class="choice">D. 宇宙人に発見される</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">宇宙鏡で太陽光を反射し地球を冷やす構想は技術的には可能。しかし一度始めると止めた瞬間に急激な温暖化が起きる「終了問題」、特定地域の降水量が激減するリスクなど深刻な副作用がある。どの国が決定権を持つかという政治問題もある。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">🐑 ウールのセーター1枚が自然に分解されるまでの年数は？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 約50〜100年</div>
+      <div class="choice">B. 約200年以上</div>
+      <div class="choice correct">C. 約1〜5年</div>
+      <div class="choice">D. 約500年以上</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ウールは天然繊維なので土の中で約1〜5年で分解される。一方、ポリエステル・ナイロンなどの合成繊維は約200年以上かかる。素材の選択が100年後の海や土壌を変える。「どんな素材を選ぶか」が地球への投票になっている。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">🔋 「重力電池」とはどんな仕組み？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 重力で水を循環させて発電する</div>
+      <div class="choice correct">B. 重いものを高い場所に上げ、落とすときに発電する</div>
+      <div class="choice">C. 地球の重力変化を電力に変換する</div>
+      <div class="choice">D. 深海の水圧を利用して発電する</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">余剰電力でクレーンが重いブロックを積み上げ（蓄電）、電力が必要な時にブロックを降ろして発電（放電）する仕組み。廃炭鉱の縦穴を利用した「重力式蓄電」も開発中。リチウムを使わないため環境負荷が低く、廃墟をエネルギー施設に再利用できる。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">🧪 「人工光合成」が実用化されると何ができる？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 植物を使わずに食料を直接生産できる</div>
+      <div class="choice">B. CO₂を吸って酸素だけ出す機械ができる</div>
+      <div class="choice correct">C. 太陽光＋水＋CO₂から水素や燃料を直接生産できる</div>
+      <div class="choice">D. 夜間でも太陽光発電ができる</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">植物の光合成を人工的に再現し、太陽光・水・CO₂から水素や有機燃料を直接作る技術。CO₂を吸収しながら燃料を作れるため「マイナス排出」も可能。豊田中央研究所・人工光合成化学プロセス技術研究組合など日本も世界最先端で開発中。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">🌆 「スポンジシティ」とはどんな都市設計？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 建物を全て多孔質素材で作った軽量都市</div>
+      <div class="choice correct">B. 雨水を地面に吸収・貯留できるよう設計された都市</div>
+      <div class="choice">C. スポンジ状の断熱材で覆われた省エネ都市</div>
+      <div class="choice">D. 海水を吸収して真水に変える浄化機能を持つ都市</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">スポンジシティは透水性舗装・緑地・貯水池を組み合わせ、大雨を地面に吸収・貯留する都市設計。洪水と干ばつの両方に対応できる。中国・武漢やオランダが先行し、日本でも東京・大阪で一部導入が始まっている。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">🏠 「パッシブハウス」とはどんな建物？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 太陽光パネルだけで電力を自給する建物</div>
+      <div class="choice">B. 壁が薄く通気性を極限まで高めた自然換気建築</div>
+      <div class="choice correct">C. 暖房・冷房をほぼ使わず快適な温度を保てる超高断熱建築</div>
+      <div class="choice">D. 住人がいないときは自動で省エネモードになるスマートホーム</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">パッシブハウスは超高断熱・高気密・熱交換換気システムで、暖房・冷房をほぼ使わずに年中快適な室温を保つ建物。ドイツ発祥で世界に普及中。一般住宅と比べてエネルギー消費を約90%削減できる。初期費用は高いが光熱費がほぼゼロになる。</div>
+    </div>
+  </div>
+
+  <!-- 次弾予告 -->
+  <div class="next-banner">
+    <div class="next-title">🕵️ 第7弾も挑戦してみよう！</div>
+    <div class="next-sub">サステナ探偵、登場！〜真実はいつも地球にある〜<br>食堂のポスターのQRコードをスキャン！</div>
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
