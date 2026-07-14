@@ -1,0 +1,331 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>第7弾 答え合わせ｜サステナ"ぶれない"超マニアッククイズ</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Hiragino Kaku Gothic ProN', 'Meiryo', sans-serif;
+    background: linear-gradient(135deg, #0a3d1f 0%, #1a6b3a 50%, #0a3d1f 100%);
+    min-height: 100vh;
+    padding: 20px;
+    color: #fff;
+  }
+  .container { max-width: 800px; margin: 0 auto; }
+  .header { text-align: center; padding: 30px 20px; margin-bottom: 30px; }
+  .header .vol-badge {
+    display: inline-block;
+    background: #FFD700;
+    color: #0a3d1f;
+    font-weight: bold;
+    font-size: 14px;
+    padding: 4px 16px;
+    border-radius: 20px;
+    margin-bottom: 12px;
+  }
+  .header h1 { font-size: 24px; font-weight: bold; line-height: 1.4; margin-bottom: 8px; }
+  .header .subtitle { font-size: 14px; color: #a8d5b5; }
+  .score-banner {
+    background: rgba(255,255,255,0.1);
+    border: 2px solid #FFD700;
+    border-radius: 12px;
+    padding: 16px;
+    text-align: center;
+    margin-bottom: 30px;
+    font-size: 15px;
+  }
+  .score-banner strong { color: #FFD700; font-size: 20px; }
+  .quiz-card {
+    background: rgba(255,255,255,0.95);
+    color: #1a1a1a;
+    border-radius: 16px;
+    padding: 24px;
+    margin-bottom: 20px;
+    box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+  }
+  .quiz-card .q-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+  .q-number {
+    background: #007A53;
+    color: #fff;
+    font-weight: bold;
+    font-size: 14px;
+    width: 36px; height: 36px;
+    border-radius: 50%;
+    display: flex; align-items: center; justify-content: center;
+    flex-shrink: 0;
+  }
+  .q-text { font-size: 16px; font-weight: bold; line-height: 1.5; color: #1a1a1a; }
+  .choices { display: grid; grid-template-columns: 1fr 1fr; gap: 8px; margin-bottom: 16px; }
+  .choice {
+    padding: 10px 14px;
+    border-radius: 8px;
+    font-size: 14px;
+    border: 2px solid #e0e0e0;
+    background: #f5f5f5;
+    color: #555;
+    line-height: 1.4;
+  }
+  .choice.correct {
+    border-color: #007A53;
+    background: #e8f5ee;
+    color: #007A53;
+    font-weight: bold;
+  }
+  .choice.correct::before { content: "✅ "; }
+  .answer-box {
+    background: #f0faf4;
+    border-left: 4px solid #007A53;
+    border-radius: 0 8px 8px 0;
+    padding: 12px 16px;
+  }
+  .answer-label { font-size: 12px; font-weight: bold; color: #007A53; margin-bottom: 4px; letter-spacing: 0.5px; }
+  .answer-text { font-size: 14px; color: #333; line-height: 1.6; }
+  .final-banner {
+    background: linear-gradient(135deg, #FFD700, #FFA500);
+    color: #0a3d1f;
+    border-radius: 12px;
+    padding: 24px;
+    text-align: center;
+    margin-bottom: 20px;
+    font-weight: bold;
+  }
+  .final-banner .final-title { font-size: 22px; margin-bottom: 8px; }
+  .final-banner .final-sub { font-size: 14px; font-weight: normal; line-height: 1.6; }
+  .back-btn {
+    display: block;
+    text-align: center;
+    background: rgba(255,255,255,0.15);
+    color: #fff;
+    text-decoration: none;
+    padding: 12px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    font-size: 14px;
+  }
+  .footer { text-align: center; padding: 30px 20px; color: #a8d5b5; font-size: 13px; line-height: 1.8; }
+  @media (max-width: 480px) {
+    .choices { grid-template-columns: 1fr; }
+    .header h1 { font-size: 20px; }
+  }
+</style>
+</head>
+<body>
+<div class="container">
+
+  <div class="header">
+    <div class="vol-badge">🕵️ 第7弾 答え合わせ</div>
+    <h1>サステナ探偵 最終話<br>「真実はいつも一つ編」</h1>
+    <p class="subtitle">QCB4 Sustainability Team</p>
+  </div>
+
+  <div class="score-banner">
+    全10問中、あなたは何問正解できましたか？<br>
+    <strong>正解数上位者は決勝大会にご招待！</strong>🏆
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <!-- Q1 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">1</div>
+      <div class="q-text">🐧 ペンギンのフンが、南極の空気をきれいにする。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. フンに含まれる成分が空気中の汚染物質を分解する</div>
+      <div class="choice">B. フンが土に染みこみ植物が育ち光合成が増える</div>
+      <div class="choice correct">C. フンから出るガスが大気中の粒子と反応し雲を作り太陽光を反射する</div>
+      <div class="choice">D. ペンギンが集まる場所は風が強く空気が循環する</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">ペンギンのフンから発生するアンモニアが大気中の粒子と反応し、雲の核になる微粒子を作り出す。その雲が太陽光を反射し、南極上空の気温を下げる効果があることが研究で判明した。フンが地球の温度調節に貢献しているという驚くべき事実。</div>
+    </div>
+  </div>
+
+  <!-- Q2 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">2</div>
+      <div class="q-text">🌵 砂漠の砂が、アマゾンの木を育てる。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 砂漠の砂が風で運ばれアマゾンに積もり土壌になる</div>
+      <div class="choice correct">B. サハラ砂漠の砂に含まれるリンが風で大西洋を渡りアマゾンの肥料になる</div>
+      <div class="choice">C. 砂漠から吹く熱風がアマゾンに雨を降らせる</div>
+      <div class="choice">D. 砂漠の砂が川を通じて海に流れアマゾン河口を豊かにする</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">サハラ砂漠の砂に含まれるリン（植物の成長に必須な栄養素）が、年間2000万トン以上も偏西風と貿易風に乗って大西洋を渡り、アマゾンの熱帯雨林に降り注いでいる。「地球の肺」アマゾンは実は「地球の砂漠」サハラに養われている。</div>
+    </div>
+  </div>
+
+  <!-- Q3 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">3</div>
+      <div class="q-text">🧊 北極の氷が溶けると、日本の冬が寒くなる。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 冷たい海水が日本海流に入るから</div>
+      <div class="choice correct">B. 氷が溶け偏西風が蛇行し北の寒気が日本に流れ込む</div>
+      <div class="choice">C. 海面上昇で日本海が浅くなるから</div>
+      <div class="choice">D. 反射する氷がなくなり地球全体が冷えるから</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">北極の氷が減ると北極と中緯度の温度差が縮まり、偏西風（ジェット気流）が蛇行しやすくなる。その結果、北極の寒気が南下して日本に流れ込み、記録的な大雪や寒波が起きる。「温暖化なのに寒い冬」の正体はこれ。</div>
+    </div>
+  </div>
+
+  <!-- Q4 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">4</div>
+      <div class="q-text">🐺 イエローストーン国立公園にオオカミを戻した。すると干上がりかけた川に水が戻った。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. オオカミが川をせき止めていた障害物を壊した</div>
+      <div class="choice correct">B. オオカミを恐れた鹿が川辺を避け植物が回復し川岸が固まった</div>
+      <div class="choice">C. オオカミの遠吠えで雨が降りやすくなった</div>
+      <div class="choice">D. オオカミが川の魚を食べたので水が増えた</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">オオカミが戻ると鹿が川辺で草を食べるのを避けるようになり、川岸の植物が回復。植物の根が土を固め、川岸の侵食が止まり川の流れが安定した。捕食者1種が生態系全体を変えるこの現象を「栄養カスケード」と呼ぶ。川の形まで変えてしまう驚きの連鎖。</div>
+    </div>
+  </div>
+
+  <!-- Q5 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">5</div>
+      <div class="q-text">🐋 クジラが1頭死ぬと、木1500本分のCO₂が海底に眠る。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice correct">A. クジラの死骸が海底に沈みCO₂を固定したまま分解される</div>
+      <div class="choice">B. クジラが死ぬと海水が冷えてCO₂が溶け込む</div>
+      <div class="choice">C. クジラの骨がCO₂を吸収する特殊な成分でできている</div>
+      <div class="choice">D. クジラが死んだ場所に珊瑚が育ちCO₂を吸収する</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">クジラは生涯にわたって大量のCO₂を体内に蓄積し、死ぬと体ごと海底に沉む（鯨骨生物群集）。平均33トンのCO₂が海底に永久固定される。さらに生きている間もフンで海面付近のプランクトンを増やし、光合成を促進するCO₂吸収の「ポンプ」として機能する。</div>
+    </div>
+  </div>
+
+  <!-- Q6 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">6</div>
+      <div class="q-text">🐘 象が森を歩くだけで、地球が少し冷える。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 象の体温が低いので周囲の気温を下げる</div>
+      <div class="choice correct">B. 象が大きな木の邪魔な小木を踏み倒すことで巨木が育ちCO₂を大量固定する</div>
+      <div class="choice">C. 象の足跡に雨水が溜まり植物が育つ</div>
+      <div class="choice">D. 象の呼吸が空気中の酸素を増やす</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">象は歩きながら小さな木や低木を踏み倒し、光を遮っていた植物を排除することで大きな木が育つ空間を作る。巨木は小木より何倍もCO₂を固定する。象1頭が1年間に固定させるCO₂は年間9.5万ドル相当の炭素クレジット価値があるとも試算されている。</div>
+    </div>
+  </div>
+
+  <!-- Q7 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">7</div>
+      <div class="q-text">🌾 雑草を抜かない農家の畑の方が、虫が少ない。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 雑草が害虫の好む植物を覆い隠す</div>
+      <div class="choice correct">B. 雑草に天敵の虫が住み着き害虫を食べてくれる</div>
+      <div class="choice">C. 雑草の匂いが害虫を遠ざける</div>
+      <div class="choice">D. 雑草が土の栄養を吸い害虫の餌がなくなる</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">雑草はハチやテントウムシなどの天敵昆虫の住処・産卵場所になる。天敵が住み着くと害虫（アブラムシ・カメムシなど）を自然に抑制してくれる。「草を抜かない農業（不耕起栽培）」は農薬を減らしながら収量を維持できる持続可能な農法として世界で注目されている。</div>
+    </div>
+  </div>
+
+  <!-- Q8 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">8</div>
+      <div class="q-text">🌳 木を1本切ると、近くの木が弱り始めた。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 切り株から毒素が土に染みこんだ</div>
+      <div class="choice correct">B. 地下の菌糸ネットワークで木々はつながっており栄養や信号を共有していた</div>
+      <div class="choice">C. 木が倒れた衝撃で根が傷んだ</div>
+      <div class="choice">D. 1本切ると日光が当たりすぎて隣の木が乾燥した</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">森の木々は地下の菌糸（マイコライザ）ネットワークで根同士がつながっており、栄養・水・化学信号を共有している。このネットワークは「ウッドワイドウェブ」と呼ばれ、親木が子木に栄養を送ることも確認されている。1本の木を切ることでネットワーク全体に影響が出る。</div>
+    </div>
+  </div>
+
+  <!-- Q9 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">9</div>
+      <div class="q-text">❄️ 冷蔵庫の冷媒が漏れると、CO₂の数千倍の温暖化効果がある。何が漏れた？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 二酸化炭素</div>
+      <div class="choice">B. メタンガス</div>
+      <div class="choice correct">C. フロンガス（HFC）</div>
+      <div class="choice">D. 窒素酸化物</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">冷蔵庫・エアコン・カーエアコンに使われるHFC（ハイドロフルオロカーボン）は、CO₂の1000〜数千倍の温暖化効果を持つ。古い機器の廃棄時に漏れるフロンガスは深刻な温暖化要因。適切な回収処理が義務づけられているが、違法廃棄も多い。身近な家電が持つ意外な危険性。</div>
+    </div>
+  </div>
+
+  <!-- Q10 -->
+  <div class="quiz-card">
+    <div class="q-header">
+      <div class="q-number">10</div>
+      <div class="q-text">🌍 廃墟になった村に自然が戻ると、川下の漁師が喜んだ。なぜ？</div>
+    </div>
+    <div class="choices">
+      <div class="choice">A. 廃墟に珍しい生き物が住み着き観光客が増えた</div>
+      <div class="choice correct">B. 人がいなくなり森が回復し栄養が川に流れ魚が増えた</div>
+      <div class="choice">C. 廃墟の建材が川に流れ魚の住処になった</div>
+      <div class="choice">D. 廃村で農薬が使われなくなり水質が改善した</div>
+    </div>
+    <div class="answer-box">
+      <div class="answer-label">📖 解説</div>
+      <div class="answer-text">人間がいなくなると森が再生し、落ち葉や腐葉土から川に栄養が豊富に流れ込む。その栄養が川→海へと運ばれ、プランクトンや魚が増える。チェルノブイリ周辺の立入禁止区域では野生動物が爆発的に回復した。「人間が何もしないこと」が最大の環境保護になるという皮肉な真実。</div>
+    </div>
+  </div>
+
+  <!-- 最終弾フィナーレ -->
+  <div class="final-banner">
+    <div class="final-title">🎉 全7弾、完走おめでとうございます！</div>
+    <div class="final-sub">
+      第1弾〜第7弾、全70問に挑戦してくれてありがとう。<br>
+      真実はいつも地球の中にある。<br>
+      あなたの知識と行動が、地球をぶれなくさせる。<br><br>
+      🏆 正解数上位者は決勝大会でお会いしましょう！
+    </div>
+  </div>
+
+  <a href="index.html" class="back-btn">← 答え合わせ一覧に戻る</a>
+
+  <div class="footer">
+    <p>🌱 あなたがいないと、サステナぶれません。</p>
+    <p>QCB4 Sustainability Team</p>
+    <p style="margin-top:8px; font-size:11px;">予選期間：5/25（月）〜 7月中旬予定｜全7弾×各10問＝全70問</p>
+  </div>
+
+</div>
+</body>
+</html>
